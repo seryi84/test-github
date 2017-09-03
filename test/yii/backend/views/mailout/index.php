@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-use common\models\Mailout;
 
 $this->title = 'Почта отправленная';
 $this->params['breadcrumbs'][] = $this->title;
@@ -55,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             },
             'format' => 'raw'],
             //'text:ntext',
-            'date',
+            'date:datetime',
 
             //['class' => 'yii\grid\ActionColumn'],
         ],

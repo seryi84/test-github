@@ -8,7 +8,7 @@ use common\models\MailoutSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\helpers\Json;
+//use yii\helpers\Json;
 
 
 /**
@@ -74,7 +74,6 @@ class MailoutController extends Controller
                 ->setTo($model->email)
                 ->setSubject($model->theme)
                 ->setTextBody($model->text)
-                ->setHtmlBody('<b>текст сообщения в формате HTML</b>')
                 ->send();
                
             return $this->redirect(['view', 'id' => $model->id]);
@@ -139,11 +138,13 @@ class MailoutController extends Controller
     {
         if (Yii::$app->request->post()) {
             $request = Yii::$app->request->post();
-            //$request= Json::decode($request, $asArray = true);
+            //$req= Json::decode($request, $asArray = true);
             foreach ($request as $one) {
-               $this->findModel($one)->delete();
+                foreach ($one as $two) {
+                    $this->findModel($two)->delete();
+                }
             }
-          }
+        }
         return $this->redirect(['index']);
     }
     

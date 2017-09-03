@@ -60,6 +60,10 @@ return [
             ],
         ],
         
+        'formatter' => [
+            'datetimeFormat' => 'dd.MM.yyyy H:i',
+       ],
+        
     ],
     'params' => $params,
 ];
